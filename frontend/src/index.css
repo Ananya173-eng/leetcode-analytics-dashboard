@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans transition-colors duration-300;
+  }
+}
+
+/* Glassmorphism Styles */
+.glass-card {
+  background: rgba(11, 16, 32, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.light .glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Gradient Borders on cards */
+.gradient-border-card {
+  position: relative;
+  border-radius: 12px;
+  background: linear-gradient(#0B1020, #0B1020) padding-box,
+              linear-gradient(135deg, #8B5CF6, #14B8A6) border-box;
+  border: 1px solid transparent;
+}
+
+.light .gradient-border-card {
+  background: linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+              linear-gradient(135deg, #8B5CF6, #14B8A6) border-box;
+}
+
+/* Glass Hover Animation */
+.glass-card-hover {
+  @apply transition-all duration-300 ease-out hover:-translate-y-1;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-card-hover:hover {
+  box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.3);
+  border-color: rgba(139, 92, 246, 0.25);
+}
+
+.light .glass-card-hover:hover {
+  box-shadow: 0 10px 30px -10px rgba(20, 184, 166, 0.2);
+  border-color: rgba(20, 184, 166, 0.25);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.2);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.4);
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: rgba(20, 184, 166, 0.2);
+  border-radius: 4px;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(20, 184, 166, 0.4);
+}
+
+/* Neon Animations */
+@keyframes neon-pulse-violet {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.2), inset 0 0 5px rgba(139, 92, 246, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.5), inset 0 0 10px rgba(139, 92, 246, 0.25);
+  }
+}
+
+.pulse-neon-violet {
+  animation: neon-pulse-violet 3s infinite alternate;
+}
+
+/* Custom Calendar heat map cells */
+.calendar-cell {
+  aspect-ratio: 1;
+  border-radius: 2px;
+}
+
+/* Page transitions style */
+.page-container {
+  will-change: transform, opacity;
+}
+
+/* Glass table headers */
+th {
+  @apply text-slate-400 font-semibold text-xs tracking-wider uppercase py-3 px-4 border-b border-white/5;
+}
+.light th {
+  @apply text-slate-500 border-black/5;
+}
+
+td {
+  @apply py-3 px-4 text-sm border-b border-white/5 text-slate-200;
+}
+.light td {
+  @apply border-black/5 text-slate-700;
+}
